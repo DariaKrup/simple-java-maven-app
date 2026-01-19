@@ -69,6 +69,9 @@
         <configuration>
           <format>kotlin</format>
           <dstDir>target/generated-configs</dstDir>
+          <internalProperties>
+            <teamcity.internal.kotlinDsl.allowPipelinesInDslProject>true</teamcity.internal.kotlinDsl.allowPipelinesInDslProject>
+          </internalProperties>
         </configuration>
       </plugin>
     </plugins>

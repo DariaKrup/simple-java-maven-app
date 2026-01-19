@@ -1,4 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.maven
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.pipelines.Pipeline
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -25,4 +28,57 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2025.11"
 
 project {
+    pipeline(PipelineBuilder)
 }
+
+
+object PipelineBuilder : Pipeline ({
+    id("PipelineBuilder")
+    name = "Pipeline Builder"
+
+
+    repositories {
+        main(DslContext. settingsRoot)
+    }
+
+    job {
+        id = "TestJob"
+        name = "Test Maven"
+        steps{
+            maven {
+                id = "MavenStep"
+                goals = "clean test"
+                runnerArgs = "-Dmaven.test.failure.ignore=true"
+                mavenVersion = defaultProvidedVersion()
+                jdkHome = "%env.JDK_18%"
+            }
+            script {
+                id = "CmdStep"
+                scriptContent = "echo 'Successful tests!'"
+            }
+        }
+        outputParam("tests_agent_OS", "%teamcity.agent.jvm.os.arch%")
+    }
+    job {
+        id = "BuildJob"
+        name = "Build Maven"
+        steps {
+            maven {
+                id = "MavenBuild"
+                goals = "clean package"
+                runnerArgs = "-Dmaven.test.failure.ignore=true"
+                mavenVersion = defaultProvidedVersion()
+                jdkHome = "%env.JDK_18%"
+            }
+            script {
+                id = "Parameter sharing"
+                scriptContent = "echo %job_param%, %job.TestJob.tests_agent_OS%"
+            }
+        }
+        dependency("Test Maven")
+        params {
+            text("job_param", "job")
+        }
+        filePublication("/target/*.jar")
+    }
+})
