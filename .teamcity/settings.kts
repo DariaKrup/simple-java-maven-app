@@ -30,6 +30,7 @@ version = "2025.11"
 
 project {
     pipeline(PipelineBuilder)
+    project(SubProject.Project)
 }
 
 
