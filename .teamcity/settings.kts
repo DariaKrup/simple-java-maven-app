@@ -48,11 +48,19 @@ object PipelineBuilder : Pipeline ({
         }
     }
 
+    params {
+        password("password", "credentialsJSON:45fad3a0-0530-4023-bfdd-e7b613048c84")
+    }
+
     job {
         id = "TestJob"
         name = "Test Maven"
 
         steps{
+            script {
+                id = "Secrets"
+                scriptContent = "echo %password% >> pass.txt"
+            }
             maven {
                 id = "MavenStep"
                 goals = "clean test"
