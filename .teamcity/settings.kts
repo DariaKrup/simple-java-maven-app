@@ -39,7 +39,7 @@ object PipelineBuilder : Pipeline ({
 
 
     repositories {
-        main(DslContext. settingsRoot)
+        main(DslContext.settingsRoot)
     }
 
     triggers {
