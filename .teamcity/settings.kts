@@ -75,7 +75,7 @@ object PipelineBuilder : Pipeline ({
                 scriptContent = "echo %job_param%, %job.TestJob.tests_agent_OS%"
             }
         }
-        dependency("Test Maven")
+        dependency("TestJob")
         params {
             text("job_param", "job")
         }
