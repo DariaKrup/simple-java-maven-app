@@ -68,7 +68,7 @@ object PipelineBuilder : Pipeline ({
                 goals = "clean package"
                 runnerArgs = "-Dmaven.test.failure.ignore=true"
                 mavenVersion = defaultProvidedVersion()
-                jdkHome = "%env.JDK_18%"
+                jdkHome = "%env.JDK_21_0%"
             }
             script {
                 id = "ParameterSharing"
