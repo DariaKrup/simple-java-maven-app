@@ -2,6 +2,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.pipelines.Pipeline
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -41,16 +42,23 @@ object PipelineBuilder : Pipeline ({
         main(DslContext. settingsRoot)
     }
 
+    triggers {
+        vcs {
+            branchFilter = "+:"
+        }
+    }
+
     job {
         id = "TestJob"
         name = "Test Maven"
+
         steps{
             maven {
                 id = "MavenStep"
                 goals = "clean test"
                 runnerArgs = "-Dmaven.test.failure.ignore=true"
                 mavenVersion = defaultProvidedVersion()
-                jdkHome = "%env.JDK_18%"
+                jdkHome = "%env.JDK_21_0%"
             }
             script {
                 id = "CmdStep"
