@@ -87,6 +87,6 @@ object PipelineBuilder : Pipeline ({
         params {
             text("job_param", "job")
         }
-        filePublication("/target/*.jar")
+        filePublication("target/*.jar")
     }
 })
