@@ -71,7 +71,7 @@ object PipelineBuilder : Pipeline ({
                 jdkHome = "%env.JDK_18%"
             }
             script {
-                id = "Parameter sharing"
+                id = "ParameterSharing"
                 scriptContent = "echo %job_param%, %job.TestJob.tests_agent_OS%"
             }
         }
