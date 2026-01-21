@@ -30,12 +30,19 @@ object MavenMessagesPipeline : Pipeline ({
                 dockerPull = true
                 dockerRunParameters = "-e ENV=test"
             }
+        }
+        parallelism = 2
+        allowReuse = false
+    }
+    job {
+        id = "ScriptInAzure"
+        name = "Script with Azure Registry"
+        steps {
             script {
                 scriptContent = "echo 'Success'"
                 dockerImage = "dkrupkinacontainerregistry.azurecr.io/app:latest"
             }
         }
-        parallelism = 2
         allowReuse = false
     }
     importParameters {
