@@ -42,11 +42,17 @@ object MavenMessagesPipeline : Pipeline ({
                 scriptContent = "echo 'Success'"
                 dockerImage = "dkrupkinacontainerregistry.azurecr.io/app:latest"
             }
+            script {
+                scriptContent = "echo %remote_docker_password% %project_parameter% >> file.txt"
+            }
         }
         allowReuse = false
+        filePublication("file.txt", publishArtifact = true, shareWithJobs = true)
     }
     importParameters {
         param("docker_io_password")
+        param("remote_docker_password")
+        param("project_parameter")
     }
     integrations {
         dockerRegistry {
