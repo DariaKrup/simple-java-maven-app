@@ -22,9 +22,9 @@ object GradlePipeline : Pipeline({
             schedulingPolicy = weekly {
                 dayOfWeek = ScheduleTrigger.DAY.Monday
                 hour = 12
+                timezone = "Europe/Amsterdam"
             }
             triggerBuild = always()
-            withPendingChangesOnly = false
         }
     }
     job {
