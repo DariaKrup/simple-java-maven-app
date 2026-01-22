@@ -60,7 +60,7 @@ object GradlePipeline : Pipeline({
         id = "GradleTestsWrapper"
         name = "Gradle Tests (custom wrapper)"
         repositories {
-            GradleConnectionRoot
+            repository(GradleConnectionRoot, path = )
         }
         steps {
             gradle {

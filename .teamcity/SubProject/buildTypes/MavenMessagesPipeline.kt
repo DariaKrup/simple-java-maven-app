@@ -49,6 +49,7 @@ object MavenMessagesPipeline : Pipeline ({
                 scriptContent = "echo %remote_docker_password% %project_parameter% >> file.txt"
             }
         }
+        integration("Docker", "AzureRegistry")
         allowReuse = false
         filePublication("file.txt", publishArtifact = true, shareWithJobs = true)
     }
@@ -59,10 +60,12 @@ object MavenMessagesPipeline : Pipeline ({
     }
     integrations {
         dockerRegistry {
+            id = "DockerRegistry"
             userName = "dariakrup"
             password = "%docker_io_password%"
         }
         dockerRegistry {
+            id = "AzureRegistry"
             url = "https://dkrupkinacontainerregistry.azurecr.io"
             userName = "17c5afa7-698f-4afd-b518-0db1fb4f0984"
             password = "credentialsJSON:e705338c-c9c9-42d4-a4bc-be4160bb969c"
