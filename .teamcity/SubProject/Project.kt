@@ -1,10 +1,13 @@
 package SubProject
 
 import SubProject.buildTypes.BuildConfigurationPublish
+import SubProject.buildTypes.GradlePipeline
 import SubProject.buildTypes.MavenMessagesPipeline
+import SubProject.vcsRoots.GradleConnectionRoot
 import SubProject.vcsRoots.MavenUnbalancedRoot
 import SubProject.vcsRoots.NetVcsRoot
 import jetbrains.buildServer.configs.kotlin.Project
+import jetbrains.buildServer.configs.kotlin.projectFeatures.githubConnection
 import jetbrains.buildServer.configs.kotlin.projectFeatures.hashiCorpVaultConnection
 import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParameter
 
@@ -14,6 +17,8 @@ object Project : Project({
 
     vcsRoot(MavenUnbalancedRoot)
     vcsRoot(NetVcsRoot)
+    vcsRoot(GradleConnectionRoot)
+
 
     features {
         hashiCorpVaultConnection {
@@ -40,4 +45,5 @@ object Project : Project({
 
     buildType(BuildConfigurationPublish)
     pipeline(MavenMessagesPipeline)
+    pipeline(GradlePipeline)
 })
