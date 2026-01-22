@@ -5,8 +5,6 @@ import SubProject.vcsRoots.MavenUnbalancedRoot
 import jetbrains.buildServer.configs.kotlin.DslContext
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.pipelines.Pipeline
-import jetbrains.buildServer.configs.kotlin.triggers.ScheduleTrigger
-import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 
@@ -60,10 +58,11 @@ object GradlePipeline : Pipeline({
         id = "GradleTestsWrapper"
         name = "Gradle Tests (custom wrapper)"
         repositories {
-            repository(GradleConnectionRoot, path = )
+            repository(GradleConnectionRoot, path = "gradle-repo")
         }
         steps {
             gradle {
+                workingDir = "gradle-repo"
                 tasks = "clean test"
                 enableDebug = true
                 enableStacktrace = true
