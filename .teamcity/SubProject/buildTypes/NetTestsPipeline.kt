@@ -12,6 +12,8 @@ object NetTestsPipeline : Pipeline ({
     }
 
     job {
+        id = "NETTestsJob"
+        name = "Tests"
         steps {
             nodeJS {
 

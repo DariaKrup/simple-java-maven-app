@@ -3,6 +3,7 @@ package SubProject
 import SubProject.buildTypes.BuildConfigurationPublish
 import SubProject.buildTypes.GradlePipeline
 import SubProject.buildTypes.MavenMessagesPipeline
+import SubProject.buildTypes.NetTestsPipeline
 import SubProject.vcsRoots.GradleConnectionRoot
 import SubProject.vcsRoots.MavenUnbalancedRoot
 import SubProject.vcsRoots.NetVcsRoot
@@ -46,4 +47,5 @@ object Project : Project({
     buildType(BuildConfigurationPublish)
     pipeline(MavenMessagesPipeline)
     pipeline(GradlePipeline)
+    pipeline(NetTestsPipeline)
 })
