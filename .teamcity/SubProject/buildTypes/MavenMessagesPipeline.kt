@@ -50,6 +50,7 @@ object MavenMessagesPipeline : Pipeline ({
             }
         }
         integration("Docker", "AzureRegistry")
+        integration("", "DockerRegistry")
         allowReuse = false
         filePublication("file.txt", publishArtifact = true, shareWithJobs = true)
     }
