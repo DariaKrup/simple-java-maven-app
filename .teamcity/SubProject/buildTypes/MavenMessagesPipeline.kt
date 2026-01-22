@@ -29,6 +29,9 @@ object MavenMessagesPipeline : Pipeline ({
                 dockerImagePlatform = MavenBuildStep.ImagePlatform.Linux
                 dockerPull = true
                 dockerRunParameters = "-e ENV=test"
+
+                pomLocation = "pom.xml"
+                runnerArgs = "-Dmaven.test.skip=true"
             }
         }
         parallelism = 2

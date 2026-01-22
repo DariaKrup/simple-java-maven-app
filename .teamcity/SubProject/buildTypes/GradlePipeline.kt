@@ -46,6 +46,33 @@ object GradlePipeline : Pipeline({
                 tasks = "clean test"
                 enableDebug = true
                 enableStacktrace = true
+
+                jdkHome = "%env.JAVA_HOME%"
+                buildFile = "build.gradle"
+
+                useGradleWrapper = true
+                gradleParams = "-Denv=staging"
+            }
+        }
+    }
+
+    job {
+        id = "GradleTestsWrapper"
+        name = "Gradle Tests (custom wrapper)"
+        repositories {
+            GradleConnectionRoot
+        }
+        steps {
+            gradle {
+                tasks = "clean test"
+                enableDebug = true
+                enableStacktrace = true
+
+                jdkHome = "%env.JAVA_HOME%"
+                buildFile = "build.gradle"
+
+                useGradleWrapper = true
+                gradleWrapperPath = "gradle-wrapper.properties"
             }
         }
     }

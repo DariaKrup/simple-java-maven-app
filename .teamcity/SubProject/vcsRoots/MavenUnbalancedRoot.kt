@@ -21,5 +21,15 @@ object GradleConnectionRoot : GitVcsRoot({
         userName = "oauth2"
         tokenId = "tc_token_id:CID_4b4df26346ed38498f51c0d6bee05baa:-1:9aeb4114-69a4-4eba-8c5a-8fafca765e79"
     }
+})
 
+object JSConnectionRoot : GitVcsRoot({
+    name = "JSConnectionRoot Repository"
+    url = "https://github.com/DariaKrup/crud_controller_js.git"
+    branch = "refs/heads/main"
+    branchSpec = "refs/heads/*"
+    authMethod = token {
+        userName = "oauth2"
+        tokenId = "tc_token_id:CID_4b4df26346ed38498f51c0d6bee05baa:-1:5a81fc7d-c812-471a-bd28-37b8ce268ca6"
+    }
 })

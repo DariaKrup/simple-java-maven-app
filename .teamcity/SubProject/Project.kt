@@ -1,10 +1,8 @@
 package SubProject
 
-import SubProject.buildTypes.BuildConfigurationPublish
-import SubProject.buildTypes.GradlePipeline
-import SubProject.buildTypes.MavenMessagesPipeline
-import SubProject.buildTypes.NetTestsPipeline
+import SubProject.buildTypes.*
 import SubProject.vcsRoots.GradleConnectionRoot
+import SubProject.vcsRoots.JSConnectionRoot
 import SubProject.vcsRoots.MavenUnbalancedRoot
 import SubProject.vcsRoots.NetVcsRoot
 import jetbrains.buildServer.configs.kotlin.Project
@@ -19,6 +17,7 @@ object Project : Project({
     vcsRoot(MavenUnbalancedRoot)
     vcsRoot(NetVcsRoot)
     vcsRoot(GradleConnectionRoot)
+    vcsRoot(JSConnectionRoot)
 
 
     features {
@@ -48,4 +47,5 @@ object Project : Project({
     pipeline(MavenMessagesPipeline)
     pipeline(GradlePipeline)
     pipeline(NetTestsPipeline)
+    pipeline(NodeJSPipeline)
 })
