@@ -21,9 +21,10 @@ object MavenMessagesPipeline : Pipeline ({
         schedule {
             schedulingPolicy = daily {
                 hour = 15
-                minute = 15
+                minute = 25
                 timezone = "Europe/Amsterdam"
             }
+            triggerBuild = always()
         }
     }
 
