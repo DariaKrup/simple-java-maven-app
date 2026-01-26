@@ -7,6 +7,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.pipelines.Pipeline
 import jetbrains.buildServer.configs.kotlin.projectFeatures.dockerRegistry
+import jetbrains.buildServer.configs.kotlin.triggers.schedule
 
 
 object MavenMessagesPipeline : Pipeline ({
@@ -14,6 +15,16 @@ object MavenMessagesPipeline : Pipeline ({
 
     repositories {
         main(MavenUnbalancedRoot)
+    }
+
+    triggers {
+        schedule {
+            schedulingPolicy = daily {
+                hour = 15
+                minute = 5
+                timezone = "Europe/Amsterdam"
+            }
+        }
     }
 
     job {
