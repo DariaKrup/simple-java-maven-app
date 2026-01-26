@@ -36,6 +36,7 @@ object GradlePipeline : Pipeline({
             triggerBuild = always()
         }
     }
+
     job {
         id = "GradleTests"
         name = "Gradle Tests"
