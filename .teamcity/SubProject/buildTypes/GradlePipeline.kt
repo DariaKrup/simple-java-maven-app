@@ -6,6 +6,7 @@ import jetbrains.buildServer.configs.kotlin.DslContext
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import jetbrains.buildServer.configs.kotlin.pipelines.Pipeline
 import jetbrains.buildServer.configs.kotlin.triggers.ScheduleTrigger
+import jetbrains.buildServer.configs.kotlin.triggers.VcsTrigger
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -25,7 +26,7 @@ object GradlePipeline : Pipeline({
     }
 
     triggers {
-        vcs { }
+        AllVCSTrigger
         schedule {
             schedulingPolicy = weekly {
                 dayOfWeek = ScheduleTrigger.DAY.Monday
@@ -90,4 +91,9 @@ object GradlePipeline : Pipeline({
             }
         }
     }
+})
+
+
+object AllVCSTrigger : VcsTrigger({
+    branchFilter = "+:*"
 })

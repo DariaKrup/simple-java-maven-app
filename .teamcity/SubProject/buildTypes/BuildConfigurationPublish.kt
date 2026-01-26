@@ -10,6 +10,10 @@ object BuildConfigurationPublish : BuildType({
 
     val buildModeBuild = "build"
 
+    triggers {
+        AllVCSTrigger
+    }
+
     steps {
         callMaven {
             name = "Build and deploy"
