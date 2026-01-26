@@ -10,9 +10,7 @@ object BuildConfigurationPublish : BuildType({
 
     val buildModeBuild = "build"
 
-    triggers {
-        AllVCSTrigger
-    }
+    AllVCSTrigger
 
     steps {
         callMaven {

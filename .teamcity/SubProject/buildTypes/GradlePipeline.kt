@@ -25,6 +25,7 @@ object GradlePipeline : Pipeline({
         text("parameter", parameterName)
     }
 
+    AllVCSTrigger
     triggers {
         AllVCSTrigger
         schedule {
