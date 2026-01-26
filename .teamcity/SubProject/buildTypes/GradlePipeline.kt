@@ -97,4 +97,5 @@ object GradlePipeline : Pipeline({
 
 object AllVCSTrigger : VcsTrigger({
     branchFilter = "+:*"
+    enabled = true
 })
