@@ -30,8 +30,8 @@ object GradlePipeline : Pipeline({
             schedulingPolicy = weekly {
                 dayOfWeek = ScheduleTrigger.DAY.Monday
                 hour = 12
-                //param("timezone", "Europe/Amsterdam")
-                timezone = "Europe/Amsterdam"
+                param("timezone", "Europe/Amsterdam")
+                //timezone = "Europe/Amsterdam"
             }
             triggerBuild = always()
         }
