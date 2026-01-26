@@ -36,6 +36,16 @@ object GradlePipeline : Pipeline({
             }
             triggerBuild = always()
         }
+        schedule {
+            schedulingPolicy = daily {
+                hour = 15
+                minute = 0
+                timezone = "Europe/Amsterdam"
+            }
+            triggerBuild = onWatchedBuildChange{
+                buildType = "BuildConfigurationPublish"
+            }
+        }
     }
 
     job {
