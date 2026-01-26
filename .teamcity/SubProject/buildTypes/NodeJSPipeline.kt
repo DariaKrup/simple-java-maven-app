@@ -13,6 +13,10 @@ object NodeJSPipeline : Pipeline({
         main(JSConnectionRoot)
     }
 
+    params {
+        password("password", "credentialsJSON:a9f10039-e193-4665-afab-91b5b38ce930")
+    }
+
     triggers {
         vcs {
             branchFilter = "+:*"
