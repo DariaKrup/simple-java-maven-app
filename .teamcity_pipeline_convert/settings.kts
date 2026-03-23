@@ -116,7 +116,7 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
         maven {
             name = "App installation"
             goals = "install:install-file"
-            runnerArgs = "-Dfile=./my-app-1.0-SNAPSHOT.jar -DgroupId=com.mycompany.app -DartifactId=my-app -Dversion=1.0-SNAPSHOT -Dpackaging=jar"
+            runnerArgs = "-Dfile=./target/my-app-1.0-SNAPSHOT.jar -DgroupId=com.mycompany.app -DartifactId=my-app -Dversion=1.0-SNAPSHOT -Dpackaging=jar"
         }
     }
 
