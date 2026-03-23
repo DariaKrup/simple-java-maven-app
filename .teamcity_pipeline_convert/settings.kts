@@ -99,8 +99,8 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
     }
 
     outputFiles {
-        sharedWithJobs("./my-app-1.0-SNAPSHOT.jar")
-        pipelineArtifacts("./my-app-1.0-SNAPSHOT.jar")
+        sharedWithJobs("./target/my-app-1.0-SNAPSHOT.jar")
+        pipelineArtifacts("./target/my-app-1.0-SNAPSHOT.jar")
     }
 })
 
