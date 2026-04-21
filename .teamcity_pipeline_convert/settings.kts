@@ -63,7 +63,6 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
     id("Job1")
     name = "Tests"
     allowReuse = true
-    enableDependencyCacheOptimization = false
 
     steps {
         maven {
@@ -82,7 +81,6 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
     id("Job1_2")
     name = "Package"
     allowReuse = false
-    enableDependencyCacheOptimization = false
 
     dependency(DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuilding_Job1)
 
@@ -108,7 +106,6 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
     id("Job1_3")
     name = "Install app"
     allowReuse = true
-    enableDependencyCacheOptimization = false
 
     dependency(DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuilding_Job1_2)
 
@@ -130,7 +127,6 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
     id("Job1_4")
     name = "Successful report"
     allowReuse = true
-    enableDependencyCacheOptimization = false
 
     dependency(DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuilding_Job1_3)
 
@@ -151,7 +147,6 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
     id("Job1_5")
     name = "Reporting"
     allowReuse = true
-    enableDependencyCacheOptimization = false
 
     steps {
         script {
@@ -165,7 +160,6 @@ object DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuildin
     id("Report")
     name = "Report"
     allowReuse = true
-    enableDependencyCacheOptimization = false
 
     dependency(DSLMilestone3WithConvertation_PipelineWithMultipleJobs_PipelineAppBuilding_Job1)
 
