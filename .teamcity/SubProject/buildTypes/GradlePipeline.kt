@@ -17,8 +17,8 @@ object GradlePipeline : Pipeline({
 
     val parameterName = DslContext.getParameter("parameter_name")
     repositories {
-        main(GradleConnectionRoot)
-        additional(MavenUnbalancedRoot)
+        repository(GradleConnectionRoot)
+        repository(MavenUnbalancedRoot, enabledByDefault = false)
     }
 
     params {
