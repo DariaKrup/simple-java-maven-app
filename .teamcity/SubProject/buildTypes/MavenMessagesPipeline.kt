@@ -14,7 +14,7 @@ object MavenMessagesPipeline : Pipeline ({
     name = "Maven: Messages Pipeline"
 
     repositories {
-        main(MavenUnbalancedRoot)
+        repository(MavenUnbalancedRoot)
     }
 
     triggers {
@@ -64,7 +64,6 @@ object MavenMessagesPipeline : Pipeline ({
         integration("Docker", "AzureRegistry")
         integration("aws", "DockerRegistry")
         allowReuse = false
-        filePublication("file.txt", publishArtifact = true, shareWithJobs = true)
     }
     integrations {
         dockerRegistry {
