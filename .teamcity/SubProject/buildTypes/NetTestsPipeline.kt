@@ -8,7 +8,7 @@ object NetTestsPipeline : Pipeline ({
     name = ".NET Tests Pipeline"
 
     repositories {
-        main(NetVcsRoot)
+        repository(NetVcsRoot)
     }
 
     job {
