@@ -22,7 +22,7 @@
     </repository>
     <repository>
       <id>teamcity-server</id>
-      <url>https://34.244.249.189:8441/app/dsl-plugins-repository</url>
+      <url>https://tcqa-azure.northeurope.cloudapp.azure.com:8443/app/dsl-plugins-repository</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
