@@ -66,11 +66,6 @@ object MavenMessagesPipeline : Pipeline ({
         allowReuse = false
         filePublication("file.txt", publishArtifact = true, shareWithJobs = true)
     }
-    importParameters {
-        param("docker_io_password")
-        param("remote_docker_password")
-        param("project_parameter")
-    }
     integrations {
         dockerRegistry {
             id = "DockerRegistry"
