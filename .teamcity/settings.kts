@@ -40,7 +40,7 @@ object PipelineBuilder : Pipeline ({
 
 
     repositories {
-        main(DslContext. settingsRoot)
+        repository(DslContext. settingsRoot)
     }
 
     triggers {
@@ -66,7 +66,6 @@ object PipelineBuilder : Pipeline ({
                 scriptContent = "echo 'Successful tests!'"
             }
         }
-        outputParam("tests_agent_OS", "%teamcity.agent.jvm.os.arch%")
     }
     job {
         id = "BuildJob"
@@ -88,6 +87,5 @@ object PipelineBuilder : Pipeline ({
         params {
             text("job_param", "job")
         }
-        filePublication("target/*.jar", true, true)
     }
 })
