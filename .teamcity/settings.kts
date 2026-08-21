@@ -36,7 +36,7 @@ project {
 
 object PipelineBuilder : Pipeline ({
     id("PipelineBuilder")
-    name = "Pipeline Builder"
+    name = "Pipeline Builder: NEW"
 
 
     repositories {
