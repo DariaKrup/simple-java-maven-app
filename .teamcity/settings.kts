@@ -31,6 +31,10 @@ version = "2025.11"
 project {
     pipeline(PipelineBuilder)
     subProject(SubProject.Project)
+
+    params{
+        param("buildParameter", "buildAll")
+    }
 }
 
 
