@@ -10,7 +10,7 @@ object NodeJSPipeline : Pipeline({
     name = "NodeJSPipeline"
 
     repositories {
-        main(JSConnectionRoot)
+        repository(JSConnectionRoot)
     }
 
     params {
